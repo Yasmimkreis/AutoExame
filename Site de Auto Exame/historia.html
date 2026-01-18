@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Historias</title>
+    </head>
+    <style>
+        /* RESET GERAL - INÍCIO */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Verdana, Helvetica, sans-serif;
+        }
+        /* RESET GERAL - FIM */
+
+        /* CORPO- INÍCIO */
+        body {
+            background: linear-gradient(to bottom right, #42a5f5, #f48fb1);
+            color: #000000;
+            line-height: 1.6;
+        }
+        /* CORPO - FIM */
+
+        /* CABEÇALHO - INÍCIO */
+        header {
+            text-align: center;
+            font-size: 40px;
+            background: linear-gradient(to right, #1565c0, #e91e63);
+            padding: 10px 0;
+            color: #ffffff;
+        }
+
+        .cabecalho {
+            background: linear-gradient(to bottom, #42a5f5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        .banner {
+            height: 300px;
+            background-image: url("banner.png");
+            width: 100%;
+            height: 60vh;   
+            background-size: cover;      
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        /* CABEÇALHO - FIM */
+
+        .menu ul li {
+            background-color: #1565c0;
+            color: #ffffff;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .menu ul li:hover {
+            background-color: #42a5f5;
+            cursor: pointer;
+        }
+
+        /* Menu*/
+        nav {
+            background: #1976d2;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;  
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: -10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+
+            text-transform: uppercase;
+            box-shadow: none;
+            display: inline-block;
+
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: #e3f2fd;
+            transform: scale(1.05); 
+        }
+
+        /* Botão hamburguer */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        /* Menu expansivo no mobile */
+
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+            }
+            
+            .menu ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 40px;
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #1565c0;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .menu ul li a:hover {
+                background-color: #42a5f5;
+            }
+
+            .menu ul li {
+                width: 100%;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header {
+                font-size: 28px;
+            }
+        }
+        /* SEÇÃO DE CONTEÚDO - INÍCIO */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .historia {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .superacao {
+            border-left: 6px solid #4CAF50; /* verde */
+        }
+
+        .perda {
+            border-left: 6px solid #E53935; /* vermelho */
+        }
+
+        /* SEÇÃO DE CONTEÚDO - FIM */
+
+        footer {
+            background-color: #918ff4;
+            color: #ffffff;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-slogan {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        footer .footer-links,
+        footer .footer-social {
+            margin-bottom: 15px;
+        }
+
+        footer .footer-links a,
+        footer .footer-social a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-social a:hover {
+            color: #1565c0;
+        }
+
+        footer .footer-contact {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        footer .footer-copy {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+    <body>
+        <header>
+            <div class="cabecalho">
+                <div class="banner"></div>
+                <nav>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="inicio.html">Início</a></li>
+                            <li><a href="informacoes.html">Informações</a></li>
+                            <li><a href="auto-checape.html">Auto-checape</a></li>
+                            <li><a href="historia.html">Historias</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="criadores.html">Criadores</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+                <div class="historia superacao">
+                    <h3>Maria, 42 anos - Câncer de mama</h3>
+                    <p>
+                        Maria descobriu um nódulo durante o autoexame. Após cirurgia e quimioterapia, ela se recuperou e hoje dá palestras em escolas sobre a importância da prevenção.
+                    </p>
+                </div>
+
+                <div class="historia superacao">
+                    <h3>João, 65 anos - Câncer de próstata</h3>
+                    <p>
+                        João sempre fez exames preventivos. Aos 65, um PSA alterado revelou câncer de próstata. Graças ao diagnóstico precoce, o tratamento foi eficaz.
+                    </p>
+                </div>
+
+                <div class="historia perda">
+                    <h3>Helena perdeu a mãe - Câncer de mama</h3>
+                    <p>
+                        A mãe de Helena ignorou sintomas por anos. Quando buscou ajuda, o câncer já estava avançado. Apesar dos esforços médicos, ela faleceu.
+                    </p>
+                </div>
+
+                <div class="historia perda">
+                    <h3>Carlos perdeu o pai - Câncer de próstata</h3>
+                    <p>
+                        O pai de Carlos tinha vergonha de falar sobre saúde masculina e nunca fez exames preventivos. O diagnóstico veio tarde demais. Carlos transformou a dor em motivação e hoje organiza campanhas de prevenção na comunidade.
+                    </p>
+                </div>
+
+                <div class="historia superacao">
+                    <h3>Carla, 50 anos - Câncer de mama</h3>
+                    <p>
+                        Carla enfrentou um tratamento longo, mas nunca perdeu o otimismo. Criou um blog para compartilhar sua rotina e dicas de bem-estar. O espaço virou referência para outras mulheres em tratamento.
+                    </p>
+                </div>
+
+                <div class="historia superacao">
+                    <h3>Antônio, 58 anos - Câncer de próstata</h3>
+                    <p>
+                        Antônio passou por cirurgia e radioterapia. Durante o processo, começou a praticar corrida para manter a saúde. Hoje participa de maratonas e usa sua história como exemplo de disciplina e esperança.
+                    </p>
+                </div>
+
+                <div class="historia perda">
+                    <h3>Juliana perdeu a irmã - Câncer de mama</h3>
+                    <p>
+                        A irmã de Juliana enfrentou o câncer com coragem, mas não resistiu. Juliana criou uma ONG que apoia famílias de pacientes oncológicos, oferecendo suporte emocional e financeiro.
+                    </p>
+                </div>
+
+                <div class="historia superacao">
+                    <h3>Luciana, 35 anos - Câncer de mama</h3>
+                    <p>
+                        Luciana foi diagnosticada jovem, mas contou com apoio da família. Após vencer o tratamento, decidiu estudar enfermagem para ajudar outras pacientes. Hoje trabalha em um hospital oncológico.
+                    </p>
+                </div>
+
+                <div class="historia perda">
+                    <h3>Pedro perdeu o tio - Câncer de próstata</h3>
+                    <p>
+                        O tio de Pedro era muito querido na família. O câncer avançou rapidamente e ele faleceu em poucos meses. Pedro decidiu se tornar médico e hoje atua na área de oncologia.
+                    </p>
+                </div>
+
+                <div class="historia perda">
+                    <h3>Ana perdeu a avó - Câncer de mama</h3>
+                    <p>
+                        A avó de Ana sempre cuidou de todos, mas negligenciou a própria saúde. Quando descobriu o câncer, já estava em estágio terminal. Ana guarda lembranças de força e amor, e hoje incentiva suas amigas a fazerem exames regularmente.
+                    </p>
+                </div>
+        </div>
+        <footer>
+            <div class="footer-title">Projeto Saúde e Prevenção</div>
+            <div class="footer-slogan">Prevenção salva vidas</div>
+
+            <div class="footer-links">
+                <a href="#">Início</a>
+                <a href="#">Informações</a>
+                <a href="#">Campanhas</a>
+                <a href="#">Contato</a>
+            </div>
+            <div class="footer-social">
+                <span>Siga-nos:</span>
+                <a href="https://facebook.com">Facebook</a>
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://twitter.com">Twitter</a>
+            </div>
+            <div class="footer-contact">
+                📧 corradirenato@yahoo.com.br | 📞 (31) 3222-1400
+            </div>
+
+            <div class="footer-copy">
+                © 2025 Projeto Saúde e Prevenção. Todos os direitos reservados.
+            </div>
+        </footer>
+    </body>
+</html>

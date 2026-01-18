@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio</title>
+    </head>
+    <style>
+        /* RESET GERAL - INÍCIO */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Verdana, Helvetica, sans-serif;
+        }
+        /* RESET GERAL - FIM */
+
+        /* CORPO- INÍCIO */
+        body {
+            background: linear-gradient(to bottom right, #42a5f5, #f48fb1);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        /* CORPO - FIM */
+
+        /* CABEÇALHO - INÍCIO */
+        header {
+            text-align: center;
+            font-size: 40px;
+            background: linear-gradient(to right, #1565c0, #e91e63);
+            padding: 10px 0;
+            color: #ffffff;
+        }
+
+        .cabecalho {
+            background: linear-gradient(to bottom, #42a5f5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        .banner {
+            height: 300px;
+            background-image: url("banner.png");
+            width: 100%;
+            height: 60vh;   
+            background-size: cover;      
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        /* CABEÇALHO - FIM */
+
+        .menu ul li {
+            background-color: #1565c0;
+            color: #ffffff;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .menu ul li:hover {
+            background-color: #42a5f5;
+            cursor: pointer;
+        }
+
+        /* Menu*/
+        nav {
+            background: #1976d2;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;  
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: -10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+
+            text-transform: uppercase;
+            box-shadow: none;
+            display: inline-block;
+
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: #e3f2fd;
+            transform: scale(1.05); 
+        }
+
+        /* Botão hamburguer */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        /* Menu expansivo no mobile */
+
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+            }
+            
+            .menu ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 40px;
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #1565c0;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .menu ul li a:hover {
+                background-color: #42a5f5;
+            }
+
+            .menu ul li {
+                width: 100%;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header {
+                font-size: 28px;
+            }
+        }
+        /* SEÇÃO DE CONTEÚDO - INÍCIO */
+       section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            text-align: center;
+            background-color: #e3f2fd;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .artigo {
+            background-color: #ffffff; 
+            max-width: 1200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            margin: 40px auto;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8em;
+            width: 100%;
+            color: #333; /* texto mais legível */
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #f48fb1;
+            margin-bottom: 20px;
+        }
+
+        /* SEÇÃO DE CONTEÚDO - FIM */
+
+        footer {
+            background-color: #918ff4;
+            color: #ffffff;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-slogan {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        footer .footer-links,
+        footer .footer-social {
+            margin-bottom: 15px;
+        }
+
+        footer .footer-links a,
+        footer .footer-social a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-social a:hover {
+            color: #1565c0;
+        }
+
+        footer .footer-contact {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        footer .footer-copy {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+    </style>
+    <body>
+        <header>
+            <div class="cabecalho">
+                <div class="banner"></div>
+                <nav>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="inicio.html">Início</a></li>
+                            <li><a href="informacoes.html">Informações</a></li>
+                            <li><a href="auto-checape.html">Auto-checape</a></li>
+                            <li><a href="historia.html">Historias</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="criadores.html">Criadores</a></li>
+                        </ul>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="artigo">
+            <div class="titulo"><h1>Bem-Vindos</h1></div>
+            <p>
+                A saúde é um dos maiores patrimônios que temos, e cuidar dela deve ser uma prioridade em todas as fases da vida. 
+                <br>
+                Este espaço foi criado com a missão de orientar homens e mulheres sobre a importância da prevenção e do diagnóstico precoce do câncer de mama e de próstata.
+                <br>
+                O autoexame é uma ferramenta simples, mas poderosa. Ele permite que cada pessoa conheça melhor o próprio corpo e identifique sinais que merecem atenção. 
+                <br>
+                No caso das mulheres, observar alterações nas mamas pode ser o primeiro passo para detectar precocemente o câncer de mama. 
+                <br>
+                Para os homens, estar atento a sintomas relacionados à próstata e realizar consultas médicas regulares é fundamental para reduzir riscos.
+                <br>
+                Mais do que informar, queremos inspirar. 
+                <br>
+                Acreditamos que conhecimento é prevenção e que cuidar da saúde é um ato de amor próprio e também de responsabilidade com quem está ao nosso redor.
+                <br>
+                Quando você se cuida, protege sua família, seus amigos e fortalece a comunidade.
+                <br>
+                Aqui você encontrará não apenas orientações sobre autoexame, mas também dicas de hábitos saudáveis, informações sobre campanhas de conscientização e endereços de hospitais e clínicas que oferecem atendimento gratuito. 
+                <br>
+                Nosso objetivo é ser um aliado na sua jornada de cuidado e bem-estar.
+                <br>
+                A prevenção salva vidas. 
+                <br>
+                Junte-se a nós nessa missão, compartilhe conhecimento e incentive quem você ama a também se cuidar. 
+                <br>
+                Porque juntos, podemos vencer o câncer de mama e de próstata.
+            </p>
+        </div>
+        <footer>
+            <div class="footer-title">Projeto Saúde e Prevenção</div>
+            <div class="footer-slogan">Prevenção salva vidas</div>
+
+            <div class="footer-links">
+                <a href="inicio.html">Início</a>
+                <a href="informacoes.html">Informações</a>
+                <a href="campanhas.html">Campanhas</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-social">
+                <span>Siga-nos:</span>
+                <a href="https://facebook.com">Facebook</a>
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://twitter.com">Twitter</a>
+            </div>
+
+            <div class="footer-contact">
+                📧 corradirenato@yahoo.com.br | 📞 (31) 3222-1400
+            </div>
+
+            <div class="footer-copy">
+                © 2025 Projeto Saúde e Prevenção. Todos os direitos reservados.
+            </div>
+        </footer>
+        <script>
+            const toggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+
+            toggle.addEventListener('click', () => {
+                navUl.classList.toggle('show');
+            });
+        </script>
+    </body>
+</html> 

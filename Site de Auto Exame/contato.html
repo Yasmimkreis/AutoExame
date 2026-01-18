@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contato</title>
+    </head>
+    <style>
+        /* RESET GERAL - INÍCIO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+        }
+        /* RESET GERAL - FIM */
+
+        /* CORPO- INÍCIO */
+        body {
+            background: linear-gradient(to bottom right, #42a5f5, #f48fb1);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        /* CORPO - FIM */
+
+        /* CABEÇALHO - INÍCIO */
+        header {
+            text-align: center;
+            font-size: 40px;
+            background: linear-gradient(to right, #1565c0, #e91e63);
+            padding: 10px 0;
+            color: #ffffff;
+        }
+
+        .cabecalho {
+            background: linear-gradient(to bottom, #42a5f5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        .banner {
+            height: 300px;
+            background-image: url("banner.png");
+            width: 100%;
+            height: 60vh;   
+            background-size: cover;      
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        /* CABEÇALHO - FIM */
+
+        .menu ul li {
+            background-color: #1565c0;
+            color: #ffffff;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .menu ul li:hover {
+            background-color: #42a5f5;
+            cursor: pointer;
+        }
+
+        /* Menu*/
+        nav {
+            background: #1976d2;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;  
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: -10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+
+            text-transform: uppercase;
+            box-shadow: none;
+            display: inline-block;
+
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: #e3f2fd;
+            transform: scale(1.05); 
+        }
+
+        /* Botão hamburguer */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        /* Menu expansivo no mobile */
+
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+            }
+            
+            .menu ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 40px;
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #1565c0;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .menu ul li a:hover {
+                background-color: #42a5f5;
+            }
+
+            .menu ul li {
+                width: 100%;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header {
+                font-size: 28px;
+            }
+        }
+        
+        .form-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #f48fb1;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .form-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        form label {
+            font-weight: bold;
+            color: #007BFF; /* azul */
+            margin-bottom: 8px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
+        }
+
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="password"]:focus,
+        form textarea:focus {
+            border-color: #FF69B4;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        form button {
+            background: linear-gradient(135deg, #007BFF, #FF69B4); /* azul → rosa */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        form button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* FORMULÁRIO - FIM */
+        footer {
+            background-color: #918ff4;
+            color: #ffffff;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-slogan {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        footer .footer-links,
+        footer .footer-social {
+            margin-bottom: 15px;
+        }
+
+        footer .footer-links a,
+        footer .footer-social a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-social a:hover {
+            color: #1565c0;
+        }
+
+        footer .footer-contact {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        footer .footer-copy {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+    <body>
+        <header>
+            <div class="cabecalho">
+                <div class="banner"></div>
+                <nav>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="inicio.html">Início</a></li>
+                            <li><a href="informacoes.html">Informações</a></li>
+                            <li><a href="auto-checape.html">Auto-checape</a></li>
+                            <li><a href="historia.html">Histórias</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="criadores.html">Criadores</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+            <h1 class="form-title">Contato</h1>
+            <p class="form-subtitle">Preencha o formulário abaixo para entrar em contato conosco.</p>
+
+            <form method="post" action="contato.php">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui" required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Enviar Mensagem</button>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <div class="footer-title">Projeto Saúde e Prevenção</div>
+            <div class="footer-slogan">Prevenção salva vidas</div>
+
+            <div class="footer-links">
+                <a href="inicio.html">Início</a>
+                <a href="informacoes.html">Informações</a>
+                <a href="campanhas.html">Campanhas</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-social">
+                <span>Siga-nos:</span>
+                <a href="https://facebook.com">Facebook</a>
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://twitter.com">Twitter</a>
+            </div>
+
+            <div class="footer-contact">
+                📧 corradirenato@yahoo.com.br | 📞 (31) 3222-1400
+            </div>
+
+            <div class="footer-copy">
+                © 2025 Projeto Saúde e Prevenção. Todos os direitos reservados.
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ept-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Criadores</title>
+    </head>
+    <style>
+        /* RESET GERAL - INÍCIO */
+        body {
+            background: linear-gradient(to bottom right, #42a5f5, #f48fb1);
+            color: #ffffff;
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /*MENU DOS DESENVOLVEDORES - INÍCIO*/
+        .menu-abas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+
+        .aba {
+            padding: 12px 20px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #42a5f5, #5c6bc0);
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Efeito ao passar o mouse */
+        .aba:hover {
+            background: linear-gradient(135deg, #64b5f6, #7986cb);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        /* Aba ativa */
+        .aba.ativa {
+            background: linear-gradient(135deg, #e91e63, #f48fb1);
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+
+        /* Conteúdo das abas */
+        .conteudo-abas {
+            display: none;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Conteúdo ativo */
+        .conteudo-abas.ativo {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Animação suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Títulos e textos dentro das abas */
+        .conteudo-abas h1 {
+            font-size: 24px;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .conteudo-abas p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /*MENU DOS DESENVOLVEDORES - FIM*/
+
+        /* Animação suave ao aparecer */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CABEÇALHO - INÍCIO */
+        header {
+            text-align: center;
+            font-size: 40px;
+            background: linear-gradient(to right, #1565c0, #e91e63);
+            padding: 10px 0;
+            color: #ffffff;
+        }
+
+        .cabecalho {
+            background: linear-gradient(to bottom, #42a5f5, #90caf9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        .banner {
+            height: 300px;
+            background-image: url("banner.png");
+            width: 100%;
+            height: 60vh;   
+            background-size: cover;      
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        /* CABEÇALHO - FIM */
+
+        .menu ul li {
+            background-color: #1565c0;
+            color: #ffffff;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .menu ul li:hover {
+            background-color: #42a5f5;
+            cursor: pointer;
+        }
+
+        /* Menu*/
+        nav {
+            background: #1976d2;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;  
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            padding: -10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+
+            text-transform: uppercase;
+            box-shadow: none;
+            display: inline-block;
+
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: #e3f2fd;
+            transform: scale(1.05); 
+        }
+
+        /* Botão hamburguer */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        /* Menu expansivo no mobile */
+
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+            }
+            
+            .menu ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 40px;
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #1565c0;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .menu ul li a:hover {
+                background-color: #42a5f5;
+            }
+
+            .menu ul li {
+                width: 100%;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header {
+                font-size: 28px;
+            }
+        }
+        
+        footer {
+            background-color: #918ff4;
+            color: #ffffff;
+            padding: 30px 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-slogan {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        footer .footer-links,
+        footer .footer-social {
+            margin-bottom: 15px;
+        }
+
+        footer .footer-links a,
+        footer .footer-social a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-social a:hover {
+            color: #1565c0;
+        }
+
+        footer .footer-contact {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        footer .footer-copy {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+    <body>
+        <header>
+            <div class="cabecalho">
+                <div class="banner"></div>
+                <nav>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="inicio.html">Início</a></li>
+                            <li><a href="informacoes.html">Informações</a></li>
+                            <li><a href="auto-checape.html">Auto-checape</a></li>
+                            <li><a href="historia.html">Historias</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="criadores.html">Criadores</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <h2>Criadores do Site</h2>
+
+        <div class="menu-abas">
+            <button class="aba ativa" onclick="mostrarAba('yasmim')">Yasmim</button>
+        </div>
+
+        <div id="yasmim" class="conteudo-abas ativo criadores">
+            <h1>Yasmim Kaylaine Reis da Silva Silveira</h1>
+            <p>Desenvolvedora do Front-End do Site</p>
+            <p>Responsável pelo menu de informações e pesquisa</p>
+            <p>Responsável pela parte do início do site</p>
+            <p>Desenvolvedora do menu de Histórias</p>
+            <p>Desenvolvedora do menu de Contato</p>
+            <p>Desenvolvedor do menu do Auto-checape</p>
+        </div>
+        
+        <footer>
+            <div class="footer-title">Projeto Saúde e Prevenção</div>
+            <div class="footer-slogan">Prevenção salva vidas</div>
+
+            <div class="footer-links">
+                <a href="inicio.html">Início</a>
+                <a href="informacoes.html">Informações</a>
+                <a href="campanhas.html">Campanhas</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-social">
+                <span>Siga-nos:</span>
+                <a href="https://facebook.com">Facebook</a>
+                <a href="https://instagram.com">Instagram</a>
+                <a href="https://twitter.com">Twitter</a>
+            </div>
+
+            <div class="footer-contact">
+                📧 corradirenato@yahoo.com.br | 📞 (31) 3222-1400
+            </div>
+
+            <div class="footer-copy">
+                © 2025 Projeto Saúde e Prevenção. Todos os direitos reservados.
+            </div>
+        </footer>
+        <script>
+            function mostrarAba(id) {
+                const abas = document.querySelectorAll('.aba');
+                const conteudos = document.querySelectorAll('.conteudo-abas');
+
+                abas.forEach(aba => aba.classList.remove('ativa'));
+                conteudos.forEach(conteudo => conteudo.classList.remove('ativo'));
+
+                document.querySelector(`[onclick="mostrarAba('${id}')"]`).classList.add('ativa');
+                document.getElementById(id).classList.add('ativo');
+            }
+        </script>
+    </body>
+</html>

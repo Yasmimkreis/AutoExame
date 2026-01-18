@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #007BFF, #FF69B4);
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        section.auto-exame {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            width: 100%;
+            max-width: 650px;
+        }
+
+        section.auto-exame h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .titulo{
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FF69B4;
+        }
+
+        .titulo2{
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        section.auto-exame p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, #007BFF, #FF69B4);
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: scale(1.05);
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: #FF69B4;
+            transform: scale(1.2);
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            background: #f9f9f9;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #FF69B4;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: block;
+        }
+
+    </style>
+    <body>
+        <section class="auto-exame">
+            <h2>💙 Cuide de Você: Faça Seu Autoexame 💗</h2>
+            <p>Cuide da sua saúde: faça o autoexame regularmente e esteja atento aos sinais.</p>
+            
+            <form id="quizForm" method="POST" action="quiz.php">
+                <label>Qual seu sexo?</label><br>
+                <input type="radio" name="sexo" value="feminino"> Feminino<br>
+                <input type="radio" name="sexo" value="masculino"> Masculino<br><br>
+
+                <label>Você sente dor ou desconforto?</label><br>
+                <select name="dor">
+                <option value="nenhum">Nenhum</option>
+                <option value="leve">Leve</option>
+                <option value="moderada">Moderada</option>
+                <option value="intensa">Intensa</option>
+                </select><br><br>
+
+                <label>Você percebeu algum sintoma preocupante?</label><br>
+
+                <div class="titulo">
+                    <h3>Sintomas Femininos</h3>
+                </div>
+                <!-- Sintomas comuns em mulheres -->
+                <input type="checkbox" name="sintomas[]" value="nodulo"> Nódulo<br>
+                <input type="checkbox" name="sintomas[]" value="sangue"> Sangue<br>
+                <input type="checkbox" name="sintomas[]" value="alteracao"> Alterações na pele<br>
+                <input type="checkbox" name="sintomas[]" value="inversao_mamilo"> Inversão do mamilo<br>
+                <input type="checkbox" name="sintomas[]" value="inchaço"> Inchaço ou vermelhidão<br>
+
+                <div class="titulo2">
+                    <h3>Sintomas Masculinos</h3>
+                </div>
+                <!-- Sintomas comuns em homens -->
+                <input type="checkbox" name="sintomas[]" value="dificuldade_urinar"> Dificuldade para urinar<br>
+                <input type="checkbox" name="sintomas[]" value="dor_retoperineal"> Dor na região pélvica ou retal<br>
+                <input type="checkbox" name="sintomas[]" value="sangue_urina"> Sangue na urina ou no sêmen<br>
+                <input type="checkbox" name="sintomas[]" value="impotencia"> Alterações na função sexual (impotência)<br>
+                <input type="checkbox" name="sintomas[]" value="inchaço_testiculos"> Inchaço ou dor nos testículos<br>
+
+                <!-- Opção geral -->
+                <input type="checkbox" name="sintomas[]" value="nenhum"> Nenhum sintoma<br><br>
+
+
+                <label>Você tem histórico familiar de câncer?</label><br>
+                <input type="radio" name="historico" value="sim"> Sim<br>
+                <input type="radio" name="historico" value="nao"> Não<br><br>
+
+                <label>Você pratica atividade física regularmente?</label><br>
+                <input type="radio" name="atividade" value="sim"> Sim<br>
+                <input type="radio" name="atividade" value="nao"> Não<br><br>
+
+                <label>Você consome álcool ou tabaco?</label><br>
+                <input type="checkbox" name="habitos[]" value="alcool"> Álcool<br>
+                <input type="checkbox" name="habitos[]" value="tabaco"> Tabaco<br>
+                <input type="checkbox" name="habitos[]" value="nenhum"> Nenhum<br><br>
+
+                <label>Qual sua faixa etária?</label><br>
+                <select name="idade">
+                <option value="menos40">Menos de 40 anos</option>
+                <option value="40a60">Entre 40 e 60 anos</option>
+                <option value="mais60">Mais de 60 anos</option>
+                </select><br><br>
+
+                <label>Você já realizou exames preventivos (mamografia, PSA, toque retal)?</label><br>
+                <input type="radio" name="exames" value="sim"> Sim<br>
+                <input type="radio" name="exames" value="nao"> Não<br><br>
+
+                <label>Você tem acompanhamento médico regular?</label><br>
+                <input type="radio" name="medico" value="sim"> Sim<br>
+                <input type="radio" name="medico" value="nao"> Não<br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </body>
+</html>
